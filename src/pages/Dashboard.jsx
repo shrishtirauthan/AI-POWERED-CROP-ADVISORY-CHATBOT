@@ -6,7 +6,7 @@ function Dashboard() {
     <>
       <Navbar />
       <h1>Dashboard Page</h1>
-      <p>This is the Dashboard page.</p>
+      <p>Dashboard for Crop Advisory Management.</p>
       <Footer />
     </>
   );
