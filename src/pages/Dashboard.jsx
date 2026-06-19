@@ -5,14 +5,8 @@ function Dashboard() {
   return (
     <>
       <Navbar />
-
       <h1>Dashboard Page</h1>
-
-      <p>
-        Dashboard will display crop insights, weather updates, and farming
-        information.
-      </p>
-
+      <p>This is the Dashboard page.</p>
       <Footer />
     </>
   );

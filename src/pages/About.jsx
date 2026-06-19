@@ -5,14 +5,8 @@ function About() {
   return (
     <>
       <Navbar />
-
       <h1>About Page</h1>
-
-      <p>
-        This Crop Advisory Chatbot helps farmers with crop recommendations and
-        farming guidance.
-      </p>
-
+      <p>This is the About page of the Crop Advisory Chatbot.</p>
       <Footer />
     </>
   );

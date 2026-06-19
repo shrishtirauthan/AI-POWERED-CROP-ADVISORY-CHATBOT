@@ -5,11 +5,8 @@ function Login() {
   return (
     <>
       <Navbar />
-
       <h1>Login Page</h1>
-
-      <p>Please enter your credentials to access the chatbot.</p>
-
+      <p>This is the Login page.</p>
       <Footer />
     </>
   );
