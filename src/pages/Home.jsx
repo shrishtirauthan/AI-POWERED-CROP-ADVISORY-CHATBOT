@@ -1,9 +1,9 @@
 import { useState } from "react";
 
-import Navbar from "../components/Navbar";
-import Hero from "../components/Hero";
-import Card from "../components/Card";
-import Footer from "../components/Footer";
+import Navbar from "../Navbar";
+import Hero from "../Hero";
+import Card from "../Card";
+import Footer from "../Footer";
 
 import Button from "../components/ui/Button";
 import Input from "../components/ui/Input";
@@ -11,13 +11,18 @@ import Loader from "../components/ui/Loader";
 import Modal from "../components/ui/Modal";
 import Toast from "../components/ui/Toast";
 
-function Home() {
+function Home({ darkMode, setDarkMode }) {
+  const [crop, setCrop] = useState("");
   const [loading, setLoading] = useState(false);
   const [showToast, setShowToast] = useState(false);
   const [showModal, setShowModal] = useState(false);
-  const [darkMode, setDarkMode] = useState(false);
 
   const handleAdvice = () => {
+    if (!crop.trim()) {
+      alert("Please enter a crop name.");
+      return;
+    }
+
     setLoading(true);
 
     setTimeout(() => {
@@ -28,50 +33,89 @@ function Home() {
   };
 
   return (
-    <div
-      style={{
-        backgroundColor: darkMode ? "#222" : "#fff",
-        color: darkMode ? "#fff" : "#000",
-        minHeight: "100vh",
-      }}
-    >
-      <Navbar />
+    <>
+      <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />
+
       <Hero />
 
-      <div style={{ textAlign: "center", margin: "20px" }}>
-        <Button
-          text={darkMode ? "LIGHT MODE" : "DARK MODE"}
-          onClick={() => setDarkMode(!darkMode)}
-        />
+      <section className="container fade-up">
+        <div className="card">
 
-        <br />
-        <br />
+          <h2 className="section-title">
+            🌾 AI Crop Recommendation
+          </h2>
 
-        <Button
-          text="GET CROP ADVICE"
-          onClick={handleAdvice}
-        />
+          <p className="section-subtitle">
+            Enter your crop name to receive intelligent farming advice,
+            weather insights and cultivation recommendations.
+          </p>
 
-        <br />
-        <br />
+          <div
+            style={{
+              display: "flex",
+              gap: "15px",
+              marginTop: "30px",
+              flexWrap: "wrap",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            <div
+              style={{
+                flex: "1",
+                minWidth: "280px",
+              }}
+            >
+              <Input
+                placeholder="Enter crop name..."
+                value={crop}
+                onChange={(e) => setCrop(e.target.value)}
+              />
+            </div>
 
-        <Input placeholder="Enter crop name" />
+            <Button
+              text="Get Advice"
+              onClick={handleAdvice}
+            />
+          </div>
 
-        <br />
-        <br />
+          <div
+            style={{
+              marginTop: "30px",
+              textAlign: "center",
+            }}
+          >
+            {loading && <Loader />}
+          </div>
 
-        {loading && <Loader />}
+          {showModal && <Modal />}
 
-        {showModal && <Modal />}
+          {showToast && (
+            <Toast message="Crop Advice Generated Successfully!" />
+          )}
+        </div>
+      </section>
 
-        {showToast && (
-          <Toast message="Crop Advice Generated Successfully!" />
-        )}
-      </div>
+      <section
+        className="container"
+        style={{
+          marginTop: "70px",
+          marginBottom: "70px",
+        }}
+      >
+        <h2 className="section-title">
+          Why Choose Our Platform?
+        </h2>
 
-      <Card />
+        <p className="section-subtitle">
+          Smart agriculture powered by Artificial Intelligence.
+        </p>
+
+        <Card />
+      </section>
+
       <Footer />
-    </div>
+    </>
   );
 }
 

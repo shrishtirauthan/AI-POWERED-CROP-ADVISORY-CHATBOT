@@ -1,17 +1,18 @@
-/**
- * Input Component
- * Props:
- * - placeholder
- */
-function Input({ placeholder }) {
+import "./Input.css";
+
+function Input({
+  placeholder,
+  value,
+  onChange,
+  type = "text",
+}) {
   return (
     <input
-      type="text"
+      className="custom-input"
+      type={type}
       placeholder={placeholder}
-      style={{
-        padding: "10px",
-        width: "250px"
-      }}
+      value={value}
+      onChange={onChange}
     />
   );
 }

@@ -1,0 +1,105 @@
+.about{
+
+padding:80px 8%;
+
+background:var(--background);
+
+min-height:100vh;
+
+}
+
+.about-hero{
+
+text-align:center;
+
+max-width:900px;
+
+margin:auto;
+
+margin-bottom:70px;
+
+}
+
+.about-hero h1{
+
+font-size:52px;
+
+margin-bottom:20px;
+
+}
+
+.about-hero p{
+
+font-size:19px;
+
+line-height:1.8;
+
+}
+
+.about-grid{
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+
+gap:30px;
+
+}
+
+.about-card{
+
+background:var(--surface);
+
+padding:35px;
+
+border-radius:20px;
+
+box-shadow:var(--shadow);
+
+border:1px solid var(--border);
+
+transition:.3s;
+
+}
+
+.about-card:hover{
+
+transform:translateY(-8px);
+
+}
+
+.about-card h2{
+
+margin-bottom:20px;
+
+color:#22c55e;
+
+}
+
+.about-card ul{
+
+padding-left:20px;
+
+}
+
+.about-card li{
+
+margin-bottom:12px;
+
+}
+
+@media(max-width:768px){
+
+.about{
+
+padding:40px 20px;
+
+}
+
+.about-hero h1{
+
+font-size:36px;
+
+}
+
+}

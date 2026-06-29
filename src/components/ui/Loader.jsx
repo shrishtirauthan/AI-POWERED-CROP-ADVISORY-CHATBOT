@@ -1,9 +1,14 @@
-/**
- * Loader Component
- */
+import "./Loader.css";
+
 function Loader() {
   return (
-    <h2>Loading...</h2>
+    <div className="loader-container">
+      <div className="spinner"></div>
+
+      <h3>Generating AI Crop Advice...</h3>
+
+      <p>Please wait a moment.</p>
+    </div>
   );
 }
 

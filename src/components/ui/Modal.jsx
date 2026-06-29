@@ -1,24 +1,46 @@
-/**
- * Modal Component
- * Displays crop advice
- */
-function Modal() {
-  return (
-    <div
-      style={{
-        border: "1px solid black",
-        padding: "20px",
-        margin: "20px",
-        backgroundColor: "#f5f5f5",
-        color: "black"
-      }}
-    >
-      <h3>Crop Advice</h3>
+import "./Modal.css";
 
-      <p>Crop: Wheat</p>
-      <p>Best Season: Winter</p>
-      <p>Recommended Soil: Loamy Soil</p>
-      <p>Water Requirement: Moderate</p>
+function Modal({ onClose }) {
+  return (
+    <div className="modal-overlay">
+
+      <div className="modal">
+
+        <button
+          className="close-btn"
+          onClick={onClose}
+        >
+          ✖
+        </button>
+
+        <h2>🌾 AI Crop Recommendation</h2>
+
+        <div className="modal-content">
+
+          <div className="info-box">
+            <span>Crop</span>
+            <strong>Wheat</strong>
+          </div>
+
+          <div className="info-box">
+            <span>Best Season</span>
+            <strong>Winter</strong>
+          </div>
+
+          <div className="info-box">
+            <span>Recommended Soil</span>
+            <strong>Loamy Soil</strong>
+          </div>
+
+          <div className="info-box">
+            <span>Water Requirement</span>
+            <strong>Moderate</strong>
+          </div>
+
+        </div>
+
+      </div>
+
     </div>
   );
 }
