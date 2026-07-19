@@ -1,9 +1,9 @@
 import mongoose from "mongoose";
 
 const connectDB = async () => {
-  try {
-    console.log("MONGO_URI =", process.env.MONGO_URI);
+  console.log("Current MONGO_URI:", process.env.MONGO_URI);
 
+  try {
     const conn = await mongoose.connect(process.env.MONGO_URI, {
       serverSelectionTimeoutMS: 10000,
     });
